@@ -1,2 +1,2 @@
-# HTA-Imgur-scarper
-Html App Imgur-scarper 
+# HTA-Imgur-scraper
+Html App Imgur-Scraper 
