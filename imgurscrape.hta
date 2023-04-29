@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<HTA:APPLICATION ID="HelloExample" 
+   BORDER="bold" 
+   BORDERSTYLE="complex"/>
+<TITLE>Imgur Image Scraper</TITLE>
+</HEAD>
+<script language="vbscript">
+Sub looprnd()
+For io = 1 to 1000
+Call randomlink()
+Next
+End Sub
+
+Sub randomlink()
+strln = "<img src=""https://i.imgur.com/"
+strext = ".png"
+strtag = " alt=""image"">"
+str = "A1B2C3D4E5F6G7H8I9J0LMNOPQRSTUVWXYZqwertyuiopasdfghjklzxcvbnm"
+For i = 1 To 5 Step 1
+Randomize
+x = Int((61*Rnd)+1)
+char = Mid(str,x,1)
+
+str1 = str1&char
+Next 
+link =strln&str1&strext&strtag
+Call grab(link)
+End Sub
+
+Sub grab(link)
+Set objFSO=CreateObject("Scripting.FileSystemObject")
+outFile="images.html"
+Set objFile = objFSO.OpenTextFile(outFile,8,True)
+objFile.WriteLine link
+objFile.Close
+End Sub
+
+Sub setup
+Set objFSO=CreateObject("Scripting.FileSystemObject")
+Set objFile = objFSO.CreateTextFile("images.html",True)
+End Sub
+</script>
+<BODY>
+<H2>Imgur Image Scraper: by Maxxx#5509</H2>
+<input type="button" style="height:100px;width:300px" value="Grab 1000 images" onclick="looprnd()"></input>
+<input type="button" style="height:100px;width:300px" value="Create/reset html file" onclick="setup()"></input>
+</BODY>
+</HTML>
