@@ -36,7 +36,7 @@ objFile.WriteLine link
 objFile.Close
 End Sub
 
-Sub setup
+Sub setup()
 Set objFSO=CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.CreateTextFile("images.html",True)
 End Sub
