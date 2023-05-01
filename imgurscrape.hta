@@ -1,11 +1,33 @@
 <HTML>
 <HEAD>
-<HTA:APPLICATION ID="HelloExample" 
+<HTA:APPLICATION ID="ImgurImageScraper" 
    BORDER="bold" 
    BORDERSTYLE="complex"/>
 <TITLE>Imgur Image Scraper</TITLE>
 </HEAD>
 <script language="vbscript">
+Sub looprndp2013()
+MsgBox "A HTML file will be created in the same folder as the scraper the program will freeze when scraping (This is normal) when it's done it will unfreeze ",1,"Starting"
+For io = 1 to 5000
+Call randomlinkp2013()
+Next
+End Sub
+
+Sub randomlinkp2013()
+strln = "<img src=""https://i.imgur.com/"
+strext = ".png"
+strtag = " alt=""image"">"
+str = "A1B2C3D4E5F6G7H8I9J0LMNOPQRSTUVWXYZqwertyuiopasdfghjklzxcvbnm"
+For i = 1 To 7 Step 1
+Randomize
+x = Int((61*Rnd)+1)
+char = Mid(str,x,1)
+str1 = str1&char
+Next 
+link =strln&str1&strext&strtag
+Call grab(link)
+End Sub
+
 Sub looprnd()
 MsgBox "A HTML file will be created in the same folder as the scraper the program will freeze when scraping (This is normal) when it's done it will unfreeze ",1,"Starting"
 For io = 1 to 1000
@@ -22,7 +44,6 @@ For i = 1 To 5 Step 1
 Randomize
 x = Int((61*Rnd)+1)
 char = Mid(str,x,1)
-
 str1 = str1&char
 Next 
 link =strln&str1&strext&strtag
@@ -44,7 +65,10 @@ End Sub
 </script>
 <BODY>
 <H2>Imgur Image Scraper: by Maxxx#5509</H2>
-<input type="button" style="height:100px;width:300px" value="Grab 1000 images" onclick="looprnd()"></input>
+<input type="button" style="height:100px;width:300px" value="Grab 1000 images Pre 2013" onclick="looprnd()"></input>
+<input type="button" style="height:100px;width:300px" value="Grab 5000 images Post 2013" onclick="looprndp2013"></input>
 <input type="button" style="height:100px;width:300px" value="Reset html file" onclick="setup()"></input>
-</BODY>
+<br></br>
+<h4>Note:post 2013 scrapeing is less efective due to less images existing post 2013 so you wil have more dead end links therefor 5000 will be grabed.</h4>
+<h4 style="color:tomato;" >Warning:Imgur has been know to have NSFW or NSFL and even Illegal Content on it and this program generates random links YOU HAVE BEEN WARNED.</h4>
 </HTML>
